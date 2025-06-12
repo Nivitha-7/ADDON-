@@ -1,0 +1,150 @@
+package Programs;
+
+  
+import java.util.HashSet;
+import java.util.Set;
+
+HASHSET:
+public class Program1Class {
+
+    public static void main(String[] args) {
+        Set<String> emailSet = new HashSet<>();
+
+        // Adding email addresses
+        emailSet.add("lasa@gmail.com");
+        emailSet.add("sathi@gmail.com");
+        emailSet.add("abc@gmail.com"); // Duplicate email
+        emailSet.add("user3@example.com");
+
+        // Printing the unique email addresses
+        System.out.println("Unique email addresses:");
+        for (String email : emailSet) {
+            System.out.println(email);
+        }
+    }}
+
+HASHMAP:
+package Programs;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class HashMapClass 
+{
+	
+
+	
+	    public static void main(String[] args) {
+	        // Create a HashMap to store student names and marks
+	        HashMap<String, Integer> studentMarks = new HashMap<>();
+
+	        // Add student names and marks to the HashMap
+	        studentMarks.put("sanvi",90);
+	        studentMarks.put("Brigadeshwari",99);
+	        studentMarks.put("Chandhini",100);
+	        studentMarks.put("Devi",98);
+	        studentMarks.put("Elsa",99);
+
+	        // Calculate and print the average mark for each student
+	        for (Map.Entry<String, Integer> entry : studentMarks.entrySet()) {
+	            String studentName = entry.getKey();
+	            int studentMark = entry.getValue();
+	            System.out.println("Student: " + studentName + ", Mark: " + studentMark);
+	        }
+
+	        //Calculate the average of all students
+	        double average = calculateAverage(studentMarks);
+	        System.out.println("Average mark of all students: " + average);
+	    }
+
+
+	    public static double calculateAverage(HashMap<String, Integer> studentMarks) {
+	        if (studentMarks.isEmpty()) {
+	            return 0;
+	        }
+	        int sum = 0;
+	        for (int mark : studentMarks.values()) {
+	            sum += mark;
+	        }
+	        return (double) sum / studentMarks.size();
+	    }
+	}
+
+
+NUMBERS FROM 1-10:
+public class NumberThread extends Thread {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+
+    public static void main(String[] args) {
+        NumberThread thread = new NumberThread();
+        thread.start();
+    }
+}
+MULTIPLE THREADS:
+package Programs;
+
+public class MultipleClass 
+{
+	    public static void main(String[] args) {
+	        MessagePrinter printer1 = new MessagePrinter("Hello from Thread 1");
+	        MessagePrinter printer2 = new MessagePrinter("Greetings from Thread 2");
+
+	        Thread thread1 = new Thread(printer1);
+	        Thread thread2 = new Thread(printer2);
+
+	        thread1.start();
+	        thread2.start();
+	    }
+	}
+
+class MessagePrinter implements Runnable {
+    private String message;
+
+    public MessagePrinter(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Thread " + Thread.currentThread().getName() + ": " + message);
+    }
+}
+JOIN AND DEMONSTRATE:
+package Programs;
+
+public class SleepDemonstrateClass 
+{
+	    public static void main(String[] args) throws InterruptedException {
+	        // Create a new thread
+	        Thread thread1 = new Thread(() -> 
+	        {
+	            try {
+	                System.out.println("Thread 1: Starting...");
+	                Thread.sleep(2000); // Pauses execution for 2 seconds
+	                System.out.println("Thread 1: Finished sleeping.");
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        });
+
+	        // Start the new thread
+	        thread1.start();
+
+	        // Wait for thread1 to finish
+	        System.out.println("Main thread: Waiting for thread1...");
+	        thread1.join(); // Waits for thread1 to complete its execution
+	        System.out.println("Main thread: Thread1 finished.  Continuing...");
+
+	        // Do more work after thread1 is finished
+	        System.out.println("Main thread: Work complete.");
+	    }
+	}
+
+
+	   
+
