@@ -1,0 +1,148 @@
+CHECKING FOR LEAP YEAR:-
+______________________________________________________________________________________________________________________________________
+
+import java.util.Scanner; 
+public class Main 
+{ 
+
+
+    static void checkLeap(int year) 
+{ 
+        if (year % 4 == 0  &&  year%100 !=0 || year%400 = 0)  
+        { 
+            System.out.println(year + " is a leap year"); 
+        } else 
+	{ 
+            System.out.println(year + " is not a leap year"); 
+        } 
+    } 
+
+    public static void main(String[] args) 
+{ 
+        Scanner in=new Scanner(System.in);
+	{ 
+            System.out.print("enter the number:"); 
+        } 
+        int year = in.nextInt(); 
+       checkLeap(year);   
+    } 
+} 
+
+______________________________________________________________________________________________________________________________________
+
+PRINT ALL EVEN NUMBERS:-
+______________________________________________________________________________________________________________________________________
+public class Main 
+{ 
+    public static void main(String[] args) 
+	{ 
+        System.out.println("Even numbers from 1 to 100:"); 
+        for (int i = 1; i <= 100; i++) 
+	{ 
+            if (i % 2 == 0) 
+	{ 
+                System.out.println(i + " "); 
+         } 
+        } 
+    } 
+} 
+______________________________________________________________________________________________________________________________________
+SIMPLE INTEREST CALCULATOR:-
+______________________________________________________________________________________________________________________________________
+import java.util.Scanner;
+
+public class SimpleInterest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        
+        System.out.print("Enter Principal: ");
+        double principal = sc.nextDouble();
+
+        System.out.print("Enter Rate (%): ");
+        double rate = sc.nextDouble();
+
+        System.out.print("Enter Time (years): ");
+        double time = sc.nextDouble();
+
+        double si = 0;
+
+        
+        if (principal > 0 && rate > 0 && time > 0) {
+            si = (principal * rate * time) / 100;
+            System.out.println("Simple Interest = " + si);
+        }
+
+        if (principal <= 0 || rate <= 0 || time <= 0) {
+            System.out.println("Please enter positive values only!");
+        }
+    }
+}
+_____________________________________________________________________________________________________________________________________
+
+MENU-DRIVEN CALCULATOR:-
+_____________________________________________________________________________________________________________________________________
+package Programs;
+
+import java.util.Scanner;
+
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int choice;
+        double num1, num2, result;
+
+        do {
+            System.out.println("Menu:");
+            System.out.println("1. Addition");
+            System.out.println("2. Subtraction");
+            System.out.println("3. Multiplication");
+            System.out.println("4. Division");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+            choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter two numbers: ");
+                    num1 = input.nextDouble();
+                    num2 = input.nextDouble();
+                    result = num1 + num2;
+                    System.out.println("Result: " + result);
+                    break;
+                case 2:
+                    System.out.print("Enter two numbers: ");
+                    num1 = input.nextDouble();
+                    num2 = input.nextDouble();
+                    result = num1 - num2;
+                    System.out.println("Result: " + result);
+                    break;
+                case 3:
+                    System.out.print("Enter two numbers: ");
+                    num1 = input.nextDouble();
+                    num2 = input.nextDouble();
+                    result=num1 *num2;
+                    
+                case 4:
+                    System.out.print("Enter two numbers: ");
+                    num1 = input.nextDouble();
+                    num2 = input.nextDouble();
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                        System.out.println("Result: " + result);
+                    } else {
+                        System.out.println("Cannot divide by zero.");
+                    }
+                    break;
+                case 0:
+                    System.out.println("Exiting calculator.");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+            }
+        } while (choice != 0);
+
+        input.close();
+    }
+}
+______________________________________________________________________________________________________________________________________
