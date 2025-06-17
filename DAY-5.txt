@@ -1,0 +1,158 @@
+ARRAY LIST OF STUDENTS:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Programs;
+import java.util.*;
+import java.io.*;
+public class ArrayListClass
+{
+		public static void main(String[] args)
+		{
+			
+			        ArrayList<String> students = new ArrayList<>();
+			        // Add student names to the ArrayList
+			        students.add("John");
+			        students.add("Jane");
+			        students.add("Sarah");
+			        students.add("Michael");
+			        System.out.println("Student List:");
+			        for (String student : students) {
+			            System.out.println(student);
+			        }
+			    }
+			
+		}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	
+HASHSET TO DISPLAY UNIQUE EMAIL ADDRESSES:-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Programs;
+import java.util.HashSet;
+import java.util.Set;
+public class Program1Class {
+
+    public static void main(String[] args) {
+        Set<String> emailSet = new HashSet<>();
+
+        emailSet.add("lasa@gmail.com");
+        emailSet.add("sathi@gmail.com");
+        emailSet.add("abc@gmail.com"); // Duplicate email
+        emailSet.add("user3@example.com");
+
+        // Printing the unique email addresses
+        System.out.println("Unique email addresses:");
+        for (String email : emailSet) {
+            System.out.println(email);
+        }
+    }}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+USING HASHSET TO STORE LIST OF STUDENT AND MARKS AND CALCULATE  RESULT:
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Programs;
+
+import java.util.*;
+
+public class EasyStudentAverage {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Create a HashMap to store student name and total marks
+        HashMap<String, Integer> studentMarks = new HashMap<>();
+        HashMap<String, Integer> subjectCount = new HashMap<>();
+
+        System.out.print("How many students? ");
+        int n = sc.nextInt();
+        sc.nextLine(); // consume newline
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("\nEnter student name: ");
+            String name = sc.nextLine();
+
+            System.out.print("How many subjects? ");
+            int subjects = sc.nextInt();
+
+            int total = 0;
+            for (int j = 0; j < subjects; j++) {
+                System.out.print("Enter mark " + (j + 1) + ": ");
+                total += sc.nextInt();
+            }
+            sc.nextLine(); 
+
+            studentMarks.put(name, total);
+            subjectCount.put(name, subjects);
+        }
+
+       
+        System.out.println("\n--- Averages ---");
+        for (String name : studentMarks.keySet()) {
+            int total = studentMarks.get(name);
+            int subjects = subjectCount.get(name);
+            double average = (double) total / subjects;
+            System.out.println(name + " → Average: " + average);
+        }
+}}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+STUDENT COURSE ENROLLMENT SYSTEM:-
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+package Programs;
+
+import java.util.*;
+
+public class SimpleStudentCourse {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> students = new ArrayList<>();
+        HashMap<String, ArrayList<String>> courses = new HashMap<>();
+
+        while (true) {
+            System.out.println("1. Add Student");
+            System.out.println("2. Enroll Course");
+            System.out.println("3. Remove Student");
+            System.out.println("4. Show All");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            if (choice == 1) 
+            {
+                System.out.print("Enter student name: ");
+                String name = sc.nextLine();
+                students.add(name);
+                courses.put(name, new ArrayList<>());
+                System.out.println("Student added.");
+            } 
+            else if (choice == 2) {
+                System.out.print("Enter student name: ");
+                String name = sc.nextLine();
+                if (courses.containsKey(name)) {
+                    System.out.print("Enter course name: ");
+                    String course = sc.nextLine();
+                    courses.get(name).add(course);
+                    System.out.println("Course added.");
+                } else {
+                    System.out.println("Student not found.");
+                }
+            } 
+            else if (choice == 3) {
+                System.out.print("Enter student name to remove: ");
+                String name = sc.nextLine();
+                students.remove(name);
+                courses.remove(name);
+                System.out.println("Student removed.");
+            } 
+            else if (choice == 4) {
+                System.out.println("\n--- Students and Courses ---");
+                for (String name : students) {
+                    System.out.println(name + " => " + courses.get(name));
+                }
+            } 
+            else if (choice == 5) {
+                System.out.println("Goodbye!");
+                break;
+            } 
+            else {
+                System.out.println("Invalid choice!");
+            }
+        }
+    }
+}
